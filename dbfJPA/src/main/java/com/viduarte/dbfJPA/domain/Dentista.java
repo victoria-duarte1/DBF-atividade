@@ -20,14 +20,12 @@ public class Dentista {
     @Column(name = "nome", length = 64)
     private String nome;
 
-    private Instant dataNascimento;
-    private String cpf;
+ 
     private String telefone;
-    private String cep;
-    private String rua;
-    private String bairro;
-    private String cidade;
-    private String uf;
+    private String email;
+    private String clinica;
+    private String cnpj;
+    private String endereco;
     private Boolean isActive;
 
     public static Dentista parseNote(String line) {

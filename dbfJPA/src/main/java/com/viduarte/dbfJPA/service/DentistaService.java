@@ -21,17 +21,17 @@ public class DentistaService {
     }
 
     public List<Dentista> findAllList(){
-        log.debug("Request to get All Pessoa");
+        log.debug("Request to get All Dentista");
         return dentistaRepository.findAll();
     }
 
     public Optional<Dentista> findOne(Long id) {
-        log.debug("Request to get Pessoa : {}", id);
+        log.debug("Request to get Dentista : {}", id);
         return dentistaRepository.findById(id);
     }
 
     public void delete(Long id) {
-        log.debug("Request to delete Pessoa : {}", id);
+        log.debug("Request to delete Dentista : {}", id);
         dentistaRepository.deleteById(id);
     }
 
@@ -42,7 +42,7 @@ public class DentistaService {
     }
 
     public List<Dentista> saveAll(List<Dentista> dentistas) {
-        log.debug("Request to save Pessoa : {}", dentistas);
+        log.debug("Request to save Dentista : {}", dentistas);
         dentistas = dentistaRepository.saveAll(dentistas);
         return dentistas;
     }

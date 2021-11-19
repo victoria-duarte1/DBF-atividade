@@ -25,8 +25,8 @@ public @SpringBootApplication class DbfJpaApplication {
   public Docket docket() {
     return new Docket(DocumentationType.OAS_30)
         .apiInfo(new ApiInfoBuilder()
-            .title("DemoDs3 2021 API")
-            .description("Uma API REST para o Trabalho PP ")
+            .title("Atividade 1 - DBF")
+            .description("Uma API REST para o Laboratório de Prótese Dentária")
             .version("0.0.1-SNAPSHOT")
             .license("MIT")
             .licenseUrl("https://opensource.org/licenses/MIT")

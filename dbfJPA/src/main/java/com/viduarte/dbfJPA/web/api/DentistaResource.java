@@ -35,10 +35,10 @@ public class DentistaResource {
     }
 
     /**
-     * {@code GET  /pessoas/:id} : get the "id" pessoa.
+     * {@code GET  /pessoas/:id} : get the "id" dentista.
      *
      * @param id o id do pessoa que será buscado.
-     * @return o {@link ResponseEntity} com status {@code 200 (OK)} e no body o pessoa, ou com status {@code 404 (Not Found)}.
+     * @return o {@link ResponseEntity} com status {@code 200 (OK)} e no body o dentista, ou com status {@code 404 (Not Found)}.
      */
     @GetMapping("/{id}")
     public ResponseEntity<Dentista> getDentista(@PathVariable Long id) {
@@ -63,9 +63,9 @@ public class DentistaResource {
     }
 
     /**
-     * {@code PUT  /pessoas} : Atualiza um pessoa existenteUpdate.
+     * {@code PUT  /dentistas} : Atualiza um pessoa existenteUpdate.
      *
-     * @param dentista o pessoa a ser atulizado.
+     * @param dentista o dentista a ser atulizado.
      * @return o {@link ResponseEntity} com status {@code 200 (OK)} e no corpo o pessoa atualizado,
      * ou com status {@code 400 (Bad Request)} se o pessoa não é válido,
      * ou com status {@code 500 (Internal Server Error)} se o pessoa não pode ser atualizado.
@@ -84,10 +84,10 @@ public class DentistaResource {
     }
 
     /**
-     * {@code POST  /} : Create a new pessoa.
+     * {@code POST  /} : Create a new dentista.
      *
-     * @param pessoa the pessoa to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new pessoa, or with status {@code 400 (Bad Request)} if the pessoa has already an ID.
+     * @param dentista the pessoa to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new dentista, or with status {@code 400 (Bad Request)} if the pessoa has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/")
@@ -95,7 +95,7 @@ public class DentistaResource {
         log.debug("REST request to save Dentista : {}", dentista);
         if (dentista.getId() != null) {
             throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Um novo pessoa não pode terum ID");
+                    HttpStatus.BAD_REQUEST, "Um novo dentista não pode ter um ID");
         }
         Dentista result = dentistaService.save(dentista);
         return ResponseEntity.created(new URI("/api/dentistas/" + result.getId()))
@@ -113,9 +113,9 @@ public class DentistaResource {
     }
 
     /**
-     * {@code DELETE  /:id} : delete pelo "id" pessoa.
+     * {@code DELETE  /:id} : delete pelo "id" dentista.
      *
-     * @param id o id do pessoas que será delete.
+     * @param id o id do dentistas que será delete.
      * @return o {@link ResponseEntity} com status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/{id}")
