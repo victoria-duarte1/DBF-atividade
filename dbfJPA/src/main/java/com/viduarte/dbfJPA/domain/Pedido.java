@@ -30,10 +30,10 @@ public class Pedido {
     private String descricao;
     
     @Temporal(TemporalType.DATE)
-    private String dataEmissao;
+    private Date dataEmissao;
     
     @Temporal(TemporalType.DATE)
-    private String dataEntrega;
+    private Date dataEntrega;
     
     private Float valor;
     
@@ -43,8 +43,8 @@ public class Pedido {
         String[] text = line.split(",");
         Pedido note = new Pedido();
         note.setId(Long.parseLong(text[0]));
-        note.setNomePaciente(text[1]);
-        note.setNomeDentista(text[1]);
+       // note.setNomePaciente(text[1]);
+       // note.setNomeDentista(text[1]);
         return note;
     }
 }
