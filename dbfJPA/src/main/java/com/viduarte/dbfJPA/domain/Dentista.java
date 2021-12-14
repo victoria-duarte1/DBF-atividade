@@ -1,5 +1,6 @@
 package com.viduarte.dbfJPA.domain;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ public class Dentista {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "nome", length = 64)
     private String nome;
     

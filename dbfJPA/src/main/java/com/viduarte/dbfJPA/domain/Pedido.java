@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -18,22 +21,30 @@ public class Pedido {
     private Long id;
 
     @Column(name = "nome", length = 64)
-    private String nome_Paciente;
-    private String nome_Dentista;
+    private String nomePaciente;
+    private String nomeDentista;
     
     @ManyToOne
     private Dentista dentista;
     
     private String descricao;
+    
+    @Temporal(TemporalType.DATE)
     private String dataEmissao;
-    private String valor;
+    
+    @Temporal(TemporalType.DATE)
+    private String dataEntrega;
+    
+    private Float valor;
+    
     private Boolean isActive;
 
     public static Pedido parseNote(String line) {
         String[] text = line.split(",");
         Pedido note = new Pedido();
         note.setId(Long.parseLong(text[0]));
-       // note.setNome(text[1]);
+        note.setNomePaciente(text[1]);
+        note.setNomeDentista(text[1]);
         return note;
     }
 }
