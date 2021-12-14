@@ -23,11 +23,16 @@ public class Clinica {
     @NotNull
     @Column(name = "nome", length = 64)
     private String nome;
-
+    
+    @Column(unique = true)
     private String cnpj;
+    
+    @Column(unique = true)
     private String telefone;
+    
     @OneToOne
     private EnderecoClinica enderecoclinica;
+    
     private Boolean isActive;
 
     public static Clinica parseNote(String line) {

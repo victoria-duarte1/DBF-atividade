@@ -22,6 +22,10 @@ public class Protese {
 
     private String descricao;
     private String valor;
+    
+    @ManyToOne
+    private Dentista dentista;
+        
     private Boolean isActive;
 
     public static Protese parseNote(String line) {

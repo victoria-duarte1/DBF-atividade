@@ -20,6 +20,10 @@ public class Pedido {
     @Column(name = "nome", length = 64)
     private String nome_Paciente;
     private String nome_Dentista;
+    
+    @ManyToOne
+    private Dentista dentista;
+    
     private String descricao;
     private String dataEmissao;
     private String valor;

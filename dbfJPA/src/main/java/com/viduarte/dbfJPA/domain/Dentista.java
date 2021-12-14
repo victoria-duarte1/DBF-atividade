@@ -5,7 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import javax.persistence.*;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.time.Instant;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -19,14 +22,25 @@ public class Dentista {
 
     @Column(name = "nome", length = 64)
     private String nome;
-
- 
+    
+    @Column(unique = true)
     private String telefone;
+    
+    @Column(unique = true)
     private String email;
-    private String clinica;
-    private String cnpj;
+    
+    @ManyToOne
+    private Clinica clinica;
+    
+    @Column(unique = true)
+    private String cpf;
+    
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
+    
     @OneToOne
     private EnderecoDentista endereco;
+    
     private Boolean isActive;
 
     public static Dentista parseNote(String line) {
