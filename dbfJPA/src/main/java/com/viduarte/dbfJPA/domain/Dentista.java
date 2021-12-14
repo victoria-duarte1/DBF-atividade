@@ -25,7 +25,8 @@ public class Dentista {
     private String email;
     private String clinica;
     private String cnpj;
-    private String endereco;
+    @OneToOne
+    private EnderecoDentista endereco;
     private Boolean isActive;
 
     public static Dentista parseNote(String line) {

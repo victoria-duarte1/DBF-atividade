@@ -1,32 +1,33 @@
 package com.viduarte.dbfJPA.domain;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "table_clinica")
-
+@Entity
+@Table(name = "table_clinica")
 public class Clinica {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @NotNull
     @Column(name = "nome", length = 64)
     private String nome;
 
     private String cnpj;
     private String telefone;
-    private String rua;
-    private String bairro;
-    private String cidade;
-    private String uf;
+    @OneToOne
+    private EnderecoClinica enderecoclinica;
     private Boolean isActive;
 
     public static Clinica parseNote(String line) {
